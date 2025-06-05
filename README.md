@@ -1,6 +1,6 @@
 <p align="justify">
 
-# 🎮 Deep Reinforcement Learning aplicado a Super Mario Bros
+# Deep Reinforcement Learning aplicado a Super Mario Bros
 
 Este proyecto tiene como objetivo el diseño, entrenamiento y validación de un agente inteligente capaz de superar de manera autónoma los niveles del videojuego **Super Mario Bros**, mediante técnicas de *Aprendizaje por Refuerzo Profundo (Deep Reinforcement Learning)*.
 
@@ -150,7 +150,7 @@ Este proyecto proporciona:
 - Los modelos guardados y configuraciones de evaluación
 - Registro de entrenamiento en TensorBoard (`./train/`)
 
-Se puede obtener un archivo comprmido con todos los modelos resultantes y datos para poder obervar la evolución de los entrenamiento en el siguiente enlace: 
+Se puede obtener un archivo comprmido con todos los modelos resultantes y datos para poder obervar la evolución de los entrenamiento en el siguiente enlace: https://drive.google.com/file/d/1c3q6V3ezc4rBDGDn7XPWHbOVCe6nXIcM/view?usp=sharing
 
 </p>
 
