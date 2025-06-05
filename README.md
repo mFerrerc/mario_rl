@@ -63,14 +63,14 @@ El algoritmo **Proximal Policy Optimization (PPO)** ha sido elegido por sus prop
 
 Se ha implementado con la librería **Stable Baselines 3**, sobre política tipo `CnnPolicy`, con logs de entrenamiento integrados en TensorBoard.
 
-Los principales hiperparámetros utilizados han sido:
+Los hiperparámetros utilizados han sido:
 
-- `learning_rate`: 2.5e-4
-- `gamma`: 0.90 o 0.95, dependiendo del nivel
-- `ent_coef`: 0.01–0.02
-- `clip_range`: 0.2
-- `gae_lambda`: 0.95
-- `n_steps`: 128, `batch_size`: 64, `n_epochs`: 8
+ W-S | n_stes | n_epochs | batch_size |  lr  | gamma | lambda | ent_coeff | clip_range | n_envs | grad_clip_norm | N_FRAMES_REPEAT 
+:---:|:------:|:--------:|:----------:|:----:|:-----:|:------:|:---------:|:----------:|:------:|:--------------:|:--------------:
+ 1-1 |  128   |    8     |     64     |2.5e-4|  0.9  |  0.98  |   0.01    |     0.2    |   16   |      0.5       |       4
+ 1-2 |  128   |    8     |     64     |2.5e-4|  0.95 |  0.95  |   0.01    |     0.2    |   16   |      0.5       |       8
+ 1-3 |  128   |    8     |     32     |2.5e-4|  0.95 |  0.98  |   0.02    |     0.2    |   16   |      0.5       |       4
+ 1-4 |  128   |    8     |     64     |2.5e-4|  0.9  |  0.95  |   0.01    |     0.2    |   16   |      0.5       |       4
 
 </p>
 
@@ -87,19 +87,27 @@ Se han realizado entrenamientos específicos para los **cuatro niveles del Mundo
 - Entrenamiento completado en 2.1M pasos
 - Comportamiento aprendido: correr y saltar sin detenerse, evitando enemigos innecesarios
 
+<img src="media/sing/world1-stage1.gif" width="200">
+
 ### Nivel 1-2 (Subterráneo)
 - Scroll rápido, túneles y enemigos continuos
 - `action_repeat` incrementado a 8 para mantener aceleración
 - Política aprendida: desplazamiento constante con saltos espaciados
+
+<img src="media/sing/world1-stage2.gif" width="200">
 
 ### Nivel 1-3 (Puentes elevados)
 - Plataformas suspendidas, enemigos voladores
 - Añadida recompensa por ascenso en eje Y
 - Mayor dificultad, requirió 3.9M pasos
 
+<img src="media/sing/world1-stage3.gif" width="200">
+
 ### Nivel 1-4 (Castillo y jefe Bowser)
 - Obstáculos lineales y enemigo final
 - Resuelto con un modelo entrenado de forma más directa (entrenamiento corto)
+
+<img src="media/sing/world1-stage4.gif" width="200">
 
 </p>
 
@@ -120,6 +128,13 @@ Además del enfoque por nivel, se diseñó un agente **multinivel** capaz de enf
 - Se incorporó una recompensa vertical para facilitar la exploración aérea en 1-3
 
 Este enfoque logró **generalizar parcialmente**, alcanzando éxito completo en 1-1, 1-2 y 1-4. Sin embargo, el nivel 1-3 se mantuvo como un caso difícil debido a su diseño estructural de plataformas encadenadas.
+
+<p align="left">
+  <img src="media/rb/world1-stage1.gif" width="200">
+  <img src="media/rb/world1-stage2.gif" width="200">
+  <img src="media/rb/world1-stage3.gif" width="200">
+  <img src="media/rb/world1-stage4.gif" width="200"><br/>
+</p>
 
 </p>
 
